@@ -1,0 +1,29 @@
+﻿@using BookManagementSystem.Web.Models.Common.Modals;
+@{
+    Layout = null;
+}
+
+<div class="modal fade" , id="ForumCreateModal" tabindex="-1" role="dialog" aria-labelledby="ForumCreateModalLabel" data-backdrop="static">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            @await Html.PartialAsync("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel("Create New Forum"))
+            <form name="forumCreateForm" role="Form" class="Form-horizontal">
+                <div class="modal-body">
+                    <div class="form-group row required">
+                        <label class="col-md-3 col-form-label" for="forumtitle">Forum Title</label>
+                        <div class="col-md-9">
+                            <input id="forumtitle" type="text" name="Title" class="form-control" required max-length="50" minlength="2" />
+                        </div>
+                    </div>
+                    <div class="form-group row required">
+                        <label class="col-md-3 col-form-label" for="forumdescription">Forum Description</label>
+                        <div class="col-md-9">
+                            <input id="forumdescription" type="text" name="Description" class="form-control" required minlength="2" />
+                        </div>
+                    </div>
+                </div>
+                @await Html.PartialAsync("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+            </form>
+        </div>
+    </div>
+</div>

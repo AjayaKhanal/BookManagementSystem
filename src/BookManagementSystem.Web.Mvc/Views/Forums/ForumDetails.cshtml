@@ -1,0 +1,49 @@
+﻿@using BookManagementSystem.Web.Startup;
+@model BookManagementSystem.Models.Forums.ForumDetailsViewModel;
+@{
+    ViewBag.Title = "Forum Details";
+    ViewBag.CurrentPageName = PageNames.ForumDetails;
+}
+
+@section scripts
+    {
+    <script src="~/view-resources/Views/Forums/ForumDetails.js" asp-append-version="true"></script>
+}
+
+<div class="row ml-3 mr-3" id="ForumDetails">
+    <div class="col-12">
+        <div class="row">
+            <ul class="list-group w-100 mt-3">
+                <li class="list-group-item w-100">
+                    <span>@Model.Forum.CreatedBy</span>
+                    <div class="col-md-12">
+                        <h1>@Model.Forum.Title</h1>
+                    </div>
+                    <hr>
+                    <div class="col-md-12">
+                        <h4>@Model.Forum.Description</h4>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container mt-3">
+        <div class="row">
+            <input type="hidden" id="Id" name="ForumId" value="@Model.Forum.Id">
+            <div class="col-md-12 d-flex">
+                <input type="text" class="form-control flex-grow mr-2" id="forumReply" name="ReplyDescription" placeholder="Forum reply..." required/>
+                <input type="button" role="button" class="btn btn-primary reply-post" value="SEND" />
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="list-group w-100 mt-3" id="ForumReplyList">
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

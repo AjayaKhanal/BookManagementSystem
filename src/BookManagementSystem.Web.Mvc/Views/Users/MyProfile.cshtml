@@ -1,0 +1,72 @@
+﻿@using BookManagementSystem.Web.Startup;
+@model BookManagementSystem.Web.Models.Users.UserDetailsViewModel;
+@{
+    ViewBag.Title = "My Profile";
+    ViewBag.CurrentPageName = PageNames.MyProfile;
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>My Profile</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts
+    {
+    <script src="~/view-resources/Views/Users/Myprofile.js" asp-append-version="true"></script>
+}
+
+<div class="ml-3 mt-3 mr-3">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    Username: <span id="username">@Model.Users.Name</span>
+                                </div>
+                                <div class="col-md-12">
+                                    Full name: <span id="fullname">@Model.Users.FullName</span>
+                                </div>
+                                <div class="col-md-12">
+                                    Email address: <span id="address">@Model.Users.EmailAddress</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h1>Book borrow details</h1>
+                        </div>
+                        <div class="card-body">
+                            <table id="BookReturnsTable" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Book Name</th>
+                                        <th>Author Name</th>
+                                        <th>Book Borrow Date</th>
+                                        <th>Late (days)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

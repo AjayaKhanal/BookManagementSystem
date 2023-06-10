@@ -1,0 +1,33 @@
+﻿@using BookManagementSystem.Web.Startup;
+@model BookManagementSystem.Models.BookHistory.BookHistoryViewModel;
+@{
+    ViewBag.Title = "Recent Read Book";
+    ViewBag.CurrentPageName = PageNames.RecentReadBook;
+}
+
+<div class="container mt-3">
+    <div class="row">
+        @foreach (var item in Model.BookHistory)
+        {
+            <div class="col-md-6 mb-3">
+                <div class="card">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="img/Book image.jpg" class="card-img" alt="Book Image">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-header">@item.EBook.EBookName</h5>
+                                <p class="card-text">@item.EBook.Description</p>
+                            </div>
+                            <div class="card-footer">
+                                <a class="btn btn-outline-primary" href="@Url.Action("EBook", "Home", new { id = item.EBookId })">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>

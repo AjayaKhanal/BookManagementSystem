@@ -1,0 +1,56 @@
+﻿@using BookManagementSystem.Authorization.Users;
+@using BookManagementSystem.Authors;
+@using BookManagementSystem.Web.Startup;
+@using Microsoft.AspNetCore.Identity;
+
+@{
+    ViewBag.Title = "Book Borrows";
+    ViewBag.CurrentPageName = PageNames.BookBorrows;
+}
+@section scripts
+    {
+    <environment names="Development">
+        <script src="~/view-resources/Views/BookBorrows/Index.js" asp-append-version="true"></script>
+    </environment>
+
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1>BookBorrow</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container" id="modal">
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="email">Student Email:</label>
+            <select class="form-control" id="email" required>
+                <option value="">-- Select Email Address --</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="student-name">Student Name:</label>
+            <input type="text" class="form-control" id="student-name" placeholder="Enter student name" disabled>
+        </div>
+        <div class="form-group">
+            <label for="book">Book Name:</label>
+            <select class="form-control" id="book" required>
+                <option value="">-- Select Book Name --</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="author">Author:</label>
+            <select class="form-control" id="author" required>
+                <option value="">-- Select Author Name --</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary borrow-button">Borrow Book</button>
+    </form>
+
+</div>

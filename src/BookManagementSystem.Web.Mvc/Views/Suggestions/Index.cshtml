@@ -1,0 +1,69 @@
+﻿@using BookManagementSystem.Web.Startup;
+@model BookManagementSystem.Models.Suggestions.SuggestionListViewModel;
+@{
+    ViewBag.Title = "Suggestions";
+    ViewBag.CurrentPageName = PageNames.Suggestion;
+}
+@section scripts
+    {
+    <environment names="Development">
+        <script src="~/view-resources/Views/Suggestions/Index.js" asp-append-version="true"></script>
+    </environment>
+
+    }
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1>Suggestions</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="modal">
+    <form name="addSuggestionForm" role="form" class="form-horizontal">
+        <div class="modal-body">
+
+            <div class="form-group row required">
+                <label class="col-md-3 col-form-label" for="suggestionDescription">Suggestion Description</label>
+                <div class="col-md-9 mb-3">
+                    <input id="suggestionDescription" type="text" name="SuggestionDescription" class="form-control" required maxlength="100" minlength="2">
+                </div>
+                <input type="button" role="button" class="btn btn-primary" value="Add Suggestion" />
+            </div>
+
+        </div>
+    </form>
+</div>
+
+<div>
+    <input type="button" role="button" class="btn btn-default" id="view-all-suggestion" value="View All Suggestions" />
+</div>
+
+<section class="content mt-5" id="hidden-section">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="SuggestionsTable" class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        @*<th></th>*@
+                                        <th>Suggestion Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

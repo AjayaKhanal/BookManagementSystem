@@ -1,0 +1,58 @@
+﻿@using BookManagementSystem.Web.Startup;
+@{
+    ViewBag.Title = "Book Returns";
+    ViewBag.CurrentPageName = PageNames.BookReturns;
+}
+
+@section scripts
+    {
+    <environment names="Development">
+        <script src="~/view-resources/Views/BookReturns/Index.js" asp-append-version="true"></script>
+    </environment>
+
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1>Book Returns</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container" id="modal">
+    <form class="form-horizontal">
+        <div>
+            <div class="form-group">
+                <label for="email">Student Email:</label>
+                <select class="form-control" id="email" required>
+                    <option value="">-- Select Email Address --</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="student-name">Student Name:</label>
+                <input type="text" class="form-control" id="student-name" placeholder="Enter student name" disabled>
+            </div>
+            <button type="submit" class="btn btn-primary return-button">Search</button>
+        </div>
+    </form>
+    
+    <br />
+
+    <table id="BookReturnsTable" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Book Name</th>
+                <th>Author Name</th>
+                <th>Late (days)</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+

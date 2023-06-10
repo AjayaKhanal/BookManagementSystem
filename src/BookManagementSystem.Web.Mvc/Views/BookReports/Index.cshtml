@@ -1,0 +1,54 @@
+﻿@using BookManagementSystem.Web.Startup;
+@model IEnumerable<BookManagementSystem.Models.BookReports.BookReportViewModel>
+@{
+    ViewBag.Title = "BookReports";
+    ViewBag.CurrentPageName = PageNames.BookReports;
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1>Book Reports</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="BookReportsTable" class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        @*<th></th>*@
+                                        <th>Book Name</th>
+                                        <th>Book borrowed</th>
+                                        <th>Quantity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach(var item in Model)
+                                    {
+                                        <tr>
+                                            @*<td></td>*@
+                                            <td>@item.BookName</td>
+                                            <td>@item.BookBorrowed</td>
+                                            <td>@item.Quantity</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

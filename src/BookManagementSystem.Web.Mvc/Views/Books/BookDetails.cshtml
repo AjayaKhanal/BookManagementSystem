@@ -1,0 +1,53 @@
+﻿@using BookManagementSystem.Web.Startup;
+@model BookManagementSystem.Models.Books.BookDetailsViewModel;
+
+@{
+    ViewBag.Title = "Book Details";
+    ViewBag.CurrentPageName = PageNames.BookDetails;
+}
+
+@section scripts
+    {
+    <script src="~/view-resources/Views/Books/BookDetails.js" asp-append-version="true"></script>
+}
+
+<div class="ml-3 mr-3" id="BookDetails">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>@Model.Book.BookName</h1>
+        </div>
+        <div class="col-md-12">
+            <h3>Written by: <span>@Model.Author.AuthorName</span></h3>
+
+        </div>
+        <div class="col-md-12">
+            <h5>Quantity available: <span>@Model.Book.Quantity</span></h5>
+
+        </div>
+        <div class="col-md-12">
+            <h5>Description: <span>@Model.Book.Description</span></h5>
+
+        </div>
+    </div>
+    <div class="container mt-3">
+        <div class="row">
+            <input type="hidden" id="bookId" name="BookId" value="@Model.Book.Id" >
+            <div class="col-md-12 d-flex">
+                <input type="text" class="form-control flex-grow mr-2" id="feedback" name="FeedbackDescription" placeholder="Enter your feedback..." />
+                <input type="button" role="button" class="btn btn-primary feedback-post" value="SEND" />
+            </div>
+        </div>
+    </div>
+
+    <!-- View Feedback Section -->
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="list-group w-100 mt-3" id="BookFeedbackList">
+                <li class="list-group-item mt-4">
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>

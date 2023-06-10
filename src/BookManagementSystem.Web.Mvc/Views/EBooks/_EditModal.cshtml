@@ -1,0 +1,57 @@
+﻿@using BookManagementSystem.Models.EBooks;
+@using BookManagementSystem.Web.Models.Common.Modals
+@model EditEBookModalViewModel
+@{
+    Layout = null;
+}
+@await Html.PartialAsync("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel("EditEBook"))
+<form name="EBookEditForm" role="form" class="form-horizontal">
+    <input type="hidden" name="Id" value="@Model.EBook.Id" />
+    <div class="modal-body">
+
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" role="tab" href="#edit-ebook-details">EBook Details</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" role="tab" href="#edit-ebook-authors">Authors</a>
+            </li>
+        </ul>
+
+        <div class="tab-content mt-4">
+            <div role="tabpanel" class="tab-pane container active" id="edit-ebook-details">
+                <div class="form-group row required">
+                    <label class="col-md-3 col-form-label" for="ebookname">EBook Name</label>
+                    <div class="col-md-9">
+                        <input id="ebookname" class="form-control" type="text" name="EBookName" value="@Model.EBook.EBookName" required maxlength="32" minlength="2">
+                    </div>
+                </div>
+                <div class="form-group row required">
+                    <label class="col-md-3 col-form-label" for="description">Description</label>
+                    <div class="col-md-9">
+                        <input id="description" class="form-control" type="text" name="Description" value="@Model.EBook.Description" required minlength="2">
+                    </div>
+                </div>
+                <div class="form-group row required">
+                    <label class="col-md-3 col-form-label" for="file">File</label>
+                    <input id="file" type="file" name="FilePath" required>
+                </div>
+            </div>
+
+            <div role="tabpanel" class="tab-pane container" id="edit-ebook-authors">
+                <div class="form-group row required">
+                    <label class="col-md-3 col-form-label" for="author">Author Name</label>
+                    <div class="col-md-9">
+                        <select class="form-control" id="author" name="AuthorId" required>
+                            <option value="">-- Select Author Name --</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    @await Html.PartialAsync("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+</form>
+
+<script src="~/view-resources/Views/EBooks/_EditModal.js" asp-append-version="true"></script>

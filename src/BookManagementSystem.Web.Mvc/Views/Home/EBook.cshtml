@@ -1,0 +1,51 @@
+﻿@using BookManagementSystem.Web.Startup;
+@model BookManagementSystem.Models.EBooks.EBookDetailsViewModel;
+@{
+    ViewBag.Title = "EBook Details";
+    ViewBag.CurrentPageName = PageNames.EBookDetails;
+}
+
+@section scripts
+    {
+    <script src="~/view-resources/Views/Home/Index.js" asp-append-version="true"></script>
+}
+
+<div class="ml-3 mr-3" id="EBookDetails">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>@Model.EBook.EBookName</h1>
+        </div>
+        <div class="col-md-12">
+            <h3>Written by: <span>@Model.Author.AuthorName</span></h3>
+
+        </div>
+        <div class="col-md-12">
+            <h5>Description: <span>@Model.EBook.Description</span></h5>
+
+        </div>
+        <div class="col-md-12">
+            @*<input type="button" role="button" id="readBook" class="btn btn-outline-primary" value="Read book" />*@
+            <a href="@Url.Action("ViewPdf", "Home", new { id = Model.EBook.Id })" target="_blank" role="button" class="btn btn-primary" id="readBook">Read book</a>
+        </div>
+        <iframe id="pdfViewer" style="display: none;"></iframe>
+    </div>
+    <div class="container mt-3">
+        <div class="row">
+            <input type="hidden" id="ebookId" name="EBookId" value="@Model.EBook.Id">
+            <div class="col-md-12 d-flex">
+                <input type="text" class="form-control flex-grow mr-2" id="feedback" name="FeedbackDescription" placeholder="Enter your feedback..." />
+                <input type="button" role="button" class="btn btn-primary feedback-post" value="SEND" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="list-group w-100 mt-3" id="EBookFeedbackList">
+                <li class="list-group-item mt-4">
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
